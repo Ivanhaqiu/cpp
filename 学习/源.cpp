@@ -786,27 +786,43 @@ public:
 	{
 		cout << "person的默认构造函数调用" << endl;
 	}
-	person(int age)
+	person(int age, int height)
 	{
 		cout << "person的有参构造函数调用" << endl;
 		m_age = age;
+		m_height = new int(height);
 	}
+
+	person(const person& p)
+	{
+		cout << "person拷贝构造函数调用" << endl;
+		m_age = p.m_age;
+		m_height = new int(*p.m_height);
+	}
+
 	~person()
 	{
+		if (m_height!=NULL)
+		{
+			delete m_height;
+			m_height = NULL;
+		}
 		cout << "person的析构函数调用" << endl;
 	}
 
 	int	m_age;
+	int* m_height;
 };
 
 void test01()
 {
-	person p1(18);
-	cout << "p1年龄为：" << p1.m_age << endl;
+	person p1(18, 160);
+	cout << "p1年龄为：" << p1.m_age 
+		<<"身高为：" << *p1.m_height << endl;
 
 	person p2(p1);
-	cout << "p2年龄为：" << p2.m_age << endl;
-	
+	cout << "p2年龄为：" << p2.m_age 
+		<< "身高为：" << *p2.m_height << endl;
 }
 
 int main()
