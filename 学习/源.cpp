@@ -779,56 +779,95 @@ using namespace std;
 
 
 //深拷贝与浅拷贝
-class person
-{
-public:
-	person()
-	{
-		cout << "person的默认构造函数调用" << endl;
-	}
-	person(int age, int height)
-	{
-		cout << "person的有参构造函数调用" << endl;
-		m_age = age;
-		m_height = new int(height);
-	}
+//class person
+//{
+//public:
+//	person()
+//	{
+//		cout << "person的默认构造函数调用" << endl;
+//	}
+//	person(int age, int height)
+//	{
+//		cout << "person的有参构造函数调用" << endl;
+//		m_age = age;
+//		m_height = new int(height);
+//	}
+//
+//	person(const person& p)
+//	{
+//		cout << "person拷贝构造函数调用" << endl;
+//		m_age = p.m_age;
+//		m_height = new int(*p.m_height);
+//	}
+//
+//	~person()
+//	{
+//		if (m_height!=NULL)
+//		{
+//			delete m_height;
+//			m_height = NULL;
+//		}
+//		cout << "person的析构函数调用" << endl;
+//	}
+//
+//	int	m_age;
+//	int* m_height;
+//};
+//
+//void test01()
+//{
+//	person p1(18, 160);
+//	cout << "p1年龄为：" << p1.m_age 
+//		<<"身高为：" << *p1.m_height << endl;
+//
+//	person p2(p1);
+//	cout << "p2年龄为：" << p2.m_age 
+//		<< "身高为：" << *p2.m_height << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//
+//	system("pause");
+//	return 0;
+//}
 
-	person(const person& p)
-	{
-		cout << "person拷贝构造函数调用" << endl;
-		m_age = p.m_age;
-		m_height = new int(*p.m_height);
-	}
-
-	~person()
-	{
-		if (m_height!=NULL)
-		{
-			delete m_height;
-			m_height = NULL;
-		}
-		cout << "person的析构函数调用" << endl;
-	}
-
-	int	m_age;
-	int* m_height;
-};
-
-void test01()
-{
-	person p1(18, 160);
-	cout << "p1年龄为：" << p1.m_age 
-		<<"身高为：" << *p1.m_height << endl;
-
-	person p2(p1);
-	cout << "p2年龄为：" << p2.m_age 
-		<< "身高为：" << *p2.m_height << endl;
-}
-
-int main()
-{
-	test01();
-
-	system("pause");
-	return 0;
-}
+//初始化列表
+//class person
+//{
+//public:
+//	//person(int a, int b, int c)
+//	//{
+//	//	m_a = a;
+//	//	m_b = b;
+//	//	m_c = c;
+//	//}
+//
+//	//初始化列表初始化属性
+//	person(int a, int b, int c) :m_a(a), m_b(b), m_c(c)
+//	{
+//
+//	}
+//	int m_a;
+//	int m_b;
+//	int m_c;
+//private:
+//
+//};
+//
+//void test01()
+//{
+//	//person p(10, 20, 30);
+//
+//	person p(30,20,10);
+//	cout << "m_a = " << p.m_a << endl;
+//	cout << "m_b = " << p.m_b << endl;
+//	cout << "m_c = " << p.m_c << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
