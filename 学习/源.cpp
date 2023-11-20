@@ -921,3 +921,79 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//静态成员变量
+//class Person
+//{
+//public:
+//
+//	static int m_a;
+//private:
+//	static int m_b;
+//};
+//
+//int Person::m_a = 100;
+//int Person::m_b = 200; 
+//
+////void test01()
+////{
+////	Person p;
+////	cout << p.m_a << endl;
+////	Person p2;
+////	p2.m_a = 200;
+////	cout << p2.m_a << endl;
+////}
+//
+//void test02()
+//{
+//	//Person p;
+//	//cout << p.m_a << endl;
+//
+//	cout << Person::m_a << endl;
+//	cout << Person::m_b << endl;
+//}
+//
+//int main()
+//{
+//	/*test01();*/
+//	test02();
+//	return 0;
+//}
+
+
+//静态成员函数
+class Person
+{
+public:
+	static void func()
+	{
+		m_a = 100;
+		/*m_b = 200;*/
+		cout << "static void func 调用" << endl;
+	}
+
+	static int m_a;
+	int m_b;
+private:
+	static void func2()
+	{
+		cout << "static void func2调用" << endl;
+	}
+};
+
+int Person::m_a = 0;
+void test01()
+{
+	Person p;
+	p.func();
+
+	Person::func();
+}
+
+int main()
+{
+	test01();
+	test2();
+	return 0;
+}
