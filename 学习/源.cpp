@@ -871,3 +871,53 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//类对象作为类成员
+//class Phone
+//{
+//public:
+//
+//	Phone(string PName)
+//	{
+//		cout << "phone的构造函数调用" << endl;
+//
+//		m_pname = PName;
+//	}
+//	~Phone()
+//	{
+//		cout << "phone的析构函数调用" << endl;
+//	}
+//	string m_pname;
+//};
+//
+//class Person
+//{
+//public:
+//	//Phone m_phone = pName 隐式转换法
+//	Person(string name, string pName) :m_name(name), m_phone(pName)
+//	{
+//		cout << "person的构造函数调用" << endl;
+//	}
+//	~Person()
+//	{
+//		cout << "person的析构函数调用" << endl;
+//	}
+//	string m_name;
+//	Phone m_phone;
+//};
+//
+////当其他类对象作为本类成员，构造时先构造类对象，再构造自身
+//
+//void test01()
+//{
+//	Person p("张三", "苹果");
+//
+//	cout << p.m_name << "拿着：" << p.m_phone.m_pname << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
