@@ -1067,3 +1067,35 @@ using namespace std;
 //	test02();
 //	return 0;
 //}
+
+
+//空指针访问成员函数
+//class Person
+//{
+//public:
+//	void showClassName()
+//	{
+//		cout << "this is person class" << endl;
+//	}
+//
+//	void showPersonAge()
+//	{
+// 		cout << "age = " << m_age << endl;
+//	}
+//	int m_age;
+//};
+//
+//void test01()
+//{
+//	Person* p = NULL;
+//	 
+//	p->showClassName();
+//	
+//	p->showPersonAge();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
