@@ -960,40 +960,39 @@ using namespace std;
 //	test02();
 //	return 0;
 //}
-
-
+//
+//
 //静态成员函数
-class Person
-{
-public:
-	static void func()
-	{
-		m_a = 100;
-		/*m_b = 200;*/
-		cout << "static void func 调用" << endl;
-	}
-
-	static int m_a;
-	int m_b;
-private:
-	static void func2()
-	{
-		cout << "static void func2调用" << endl;
-	}
-};
-
-int Person::m_a = 0;
-void test01()
-{
-	Person p;
-	p.func();
-
-	Person::func();
-}
-
-int main()
-{
-	test01();
-	test2();
-	return 0;
-}
+//class Person
+//{
+//public:
+//	static void func()
+//	{
+//		m_a = 100;
+//		/*m_b = 200;*/
+//		cout << "static void func 调用" << endl;
+//	}
+//
+//	static int m_a;
+//	int m_b;
+//private:
+//	static void func2()
+//	{
+//		cout << "static void func2调用" << endl;
+//	}
+//};
+//
+//int Person::m_a = 0;
+//void test01()
+//{
+//	Person p;
+//	p.func();
+//
+//	Person::func();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
