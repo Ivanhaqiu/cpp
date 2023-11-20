@@ -996,3 +996,35 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+//成员变量和成员函数分开存储
+//class Person
+//{
+//	int m_a;
+//	static int m_b;
+//	void func(){}
+//	static void func2() {}
+//};
+//
+//int Person::m_b = 10;
+//
+//void test01()
+//{
+//	Person p;
+//
+//	cout << "size of p = " << sizeof(p) << endl;
+//}
+//
+//void test02()
+//{
+//	Person p;
+//
+//	cout << "size of p = " << sizeof(p) << endl;
+//}
+//
+//int main()
+//{
+//	//test01();
+//	test02();
+//	return 0;
+//}
