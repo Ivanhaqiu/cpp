@@ -1099,3 +1099,45 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//常函数与常对象
+//class Person
+//{
+//public:
+//	void showPerson() const
+//	{
+//		//this->m_a = 100;
+//		this->m_b = 100;
+//	}
+//
+//	void func()
+//	{
+//		m_a = 100;
+//	}
+//	int m_a;
+//	mutable int m_b;
+//};
+//
+//void test01()
+//{
+//	Person p;
+//	p.showPerson();
+//
+//}
+//
+//void test02()
+//{
+//	const Person p;
+//	//p.m_a = 100;
+//	p.m_b = 200;
+//
+//	//常对象只能调用常函数
+//	p.showPerson();
+//	//p.func();
+//}
+//
+//int main()
+//{	
+//	return 0;
+//}
