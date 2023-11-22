@@ -1179,3 +1179,57 @@ using namespace std;
 //	return 0;
 //}
 
+
+//友元类
+//class Building;
+//class Friend
+//{
+//public:
+//
+//	void visit();
+//	Friend();
+//	Building* building;
+//private:
+//
+//};
+//
+//class Building
+//{
+//	friend class Friend;
+//public:
+//	
+//	Building();
+//	string m_sittingroom;
+//
+//private:
+//	string m_bedroom;
+//};
+//
+//Building::Building()
+//{
+//	m_sittingroom = "客厅";
+//	m_bedroom = "卧室";
+//}
+//
+//Friend::Friend()
+//{
+//	building = new Building;
+//}
+//
+//void Friend::visit()
+//{
+//	cout << "Friend正在访问：" << building->m_sittingroom << endl;
+//	cout << "Friend正在访问：" << building->m_bedroom << endl;
+//}
+//
+//void test()
+//{
+//	Friend gg;
+//	gg.visit();
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
