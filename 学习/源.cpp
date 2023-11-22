@@ -1141,3 +1141,41 @@ using namespace std;
 //{	
 //	return 0;
 //}
+
+//class Building
+//{
+//	//友元函数可以访问私有变量
+//	friend void Friend(Building* building);
+//public:
+//	Building()
+//	{
+//		m_sittingroom = "客厅";
+//		m_bedroom = "卧室";
+//	}
+//
+//	string  m_sittingroom;
+//private:
+//	string m_bedroom;
+//
+//};
+//
+//void Friend(Building *building)
+//{
+//	cout << "friend 函数正在访问：" << building->m_sittingroom << endl;
+//
+//	cout << "friend 函数正在访问：" << building->m_bedroom << endl;
+//
+//}
+//
+//void test01()
+//{
+//	Building building;	
+//	Friend(&building);
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
