@@ -1233,3 +1233,64 @@ using namespace std;
 //	test();
 //	return 0;
 //}
+
+//成员函数做友元
+//class Building;
+//class Friend
+//{
+//public:
+//	Friend();
+//
+//	void visit();
+//	void visit02();
+//
+//	Building* building;
+//};
+//
+//class Building
+//{
+//	friend void Friend::visit();
+//public:
+//	Building();
+//	string m_sittingroom;
+//	 
+//private:
+//	string m_bedroom;
+//};
+//
+//Building::Building()
+//{
+//	m_sittingroom = "客厅";
+//	m_bedroom = "卧室";
+//}
+//
+//Friend::Friend()
+//{
+//	building = new Building; 
+//}
+//
+//void Friend::visit()
+//{
+//	cout << "visit 函数正在访问：" << building->m_sittingroom << endl;
+//	cout << "visit1 函数正在访问：" << building->m_bedroom << endl;
+//}
+//
+//void Friend::visit02()
+//{
+//	cout << "visit2 函数正在访问：" << building->m_sittingroom << endl;
+//	//cout << "visit2 函数正在访问：" << building->m_bedroom << endl;
+//}
+//
+//void test01()
+//{
+//	Friend gg;
+//	gg.visit();
+//	gg.visit02();
+//}
+//
+//int main()
+//{
+//	test01();
+//
+//	return 0;
+//}
