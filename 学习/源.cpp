@@ -1379,3 +1379,56 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//µİÔöÔËËã·ûÖØÔØ
+//class myInt
+//{
+//	friend ostream& operator<<(ostream& cout, myInt Int);
+//public:
+//	myInt()
+//	{
+//		m_num = 0;
+//	}
+//
+//	myInt& operator++()
+//	{
+//		m_num++;
+//		return *this;
+//	}
+//
+//	myInt& operator++(int)
+//	{
+//		myInt tmp = *this;
+//		m_num++;
+//		return tmp;
+//	}
+//private:
+//	int m_num;
+//};
+//
+//ostream& operator<<(ostream& cout, myInt Int)
+//{
+//	cout << Int.m_num;
+//	return cout;
+//}
+//
+//void test01()
+//{
+//	myInt Int;
+//	cout << ++Int << endl;
+//}
+//
+//void test02()
+//{
+//	myInt Int1;
+//	cout << Int1++ << endl;
+//	cout << Int1 << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	return 0;
+//}
