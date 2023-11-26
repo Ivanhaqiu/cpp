@@ -1561,3 +1561,53 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//函数调用运算符重载--仿函数
+//class Print
+//{
+//public:
+//	void operator()(string test)
+//	{
+//		cout << test << endl;
+//	}
+//
+//};
+//
+//void print02(string a)
+//{
+//	cout << a << endl;
+//}
+//
+//void test01()
+//{
+//	Print print;
+//	print("hello world");//使用起来像函数，称为仿函数
+//	print02("hello world2");
+//}
+//
+//class MyAdd
+//{
+//public:
+//	int operator()(int num1, int num2)
+//	{
+//		return num1 + num2;
+//	}
+//};
+//
+//void test02()
+//{
+//	MyAdd myadd;
+//	int ret = myadd(100, 100);
+//	cout << "ret = " << ret << endl;
+//
+//	//匿名 函数对象
+//	cout << MyAdd()(100, 100) << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	return 0;
+//}
