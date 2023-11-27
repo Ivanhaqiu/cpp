@@ -1611,3 +1611,144 @@ using namespace std;
 //	test02();
 //	return 0;
 //}
+
+
+//继承-基本语法
+////class java
+////{
+////public:
+////	void header()
+////	{
+////		cout << "首页" << endl;
+////	}
+////	void footer()
+////	{
+////		cout << "帮助中心" << endl;
+////	}
+////	void left()
+////	{
+////		cout << "java, c++, python" << endl;
+////	}
+////	void content()
+////	{
+////		cout << "java学科" << endl;
+////	}
+////};
+////
+////class python
+////{
+////public:
+////	void header()
+////	{
+////		cout << "首页" << endl;
+////	}
+////	void footer()
+////	{
+////		cout << "帮助中心" << endl;
+////	}
+////	void left()
+////	{
+////		cout << "java, c++, python" << endl;
+////	}
+////	void content()
+////	{
+////		cout << "python学科" << endl;
+////	}
+////};
+////
+////class Cpp
+////{
+////public:
+////	void header()
+////	{
+////		cout << "首页" << endl;
+////	}
+////	void footer()
+////	{
+////		cout << "帮助中心" << endl;
+////	}
+////	void left()
+////	{
+////		cout << "java, c++, python" << endl;
+////	}
+////	void content()
+////	{
+////		cout << "c++学科" << endl;
+////	}
+////};
+//
+//
+////继承实现页面
+//class basepage
+//{
+//public:
+//	void header()
+//	{
+//		cout << "首页" << endl;
+//	}
+//	void footer()
+//	{
+//		cout << "帮助中心" << endl;
+//	}
+//	void left()
+//	{
+//		cout << "java, c++, python" << endl;
+//	}
+//};
+//
+//class java:public basepage
+//{
+//public:
+//	void content()
+//	{
+//		cout << "java学科" << endl;
+//	}
+//};
+//
+//class python :public basepage
+//{
+//public:
+//	void content()
+//	{
+//		cout << "python学科" << endl;
+//	}
+//};
+//
+//class Cpp :public basepage
+//{
+//public:
+//	void content()
+//	{
+//		cout << "cpp学科" << endl;
+//	}
+//};
+//
+//void test01()
+//{
+//	cout << "java页面如下：" << endl;
+//	java ja;
+//	ja.header();
+//	ja.footer();
+//	ja.left();
+//	ja.content();
+//	cout << "_________________________" << endl;
+//	cout << "python页面如下：" << endl;
+//	python py;
+//	py.header();
+//	py.footer();
+//	py.left();
+//	py.content();
+//	cout << "_________________________" << endl;
+//	cout << "c++页面如下：" << endl;
+//	Cpp cpp;
+//	cpp.header();
+//	cpp.footer();
+//	cpp.left();
+//	cpp.content();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
