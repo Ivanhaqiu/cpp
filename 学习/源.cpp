@@ -1854,3 +1854,34 @@ using namespace std;
 //
 //	return 0;
 //}
+
+
+//继承中的对象模型
+//class base
+//{
+//public:
+//	int m_a;
+//protected:
+//	int m_b;
+//private:
+//	int m_c;
+//};
+//
+//class Son :public base
+//{
+//public:
+//	int m_d;
+//};
+//
+//void test01()
+//{
+//	//16
+//	//父类中所有非静态成员属性都会被子类继承下去
+//	cout << "size of son: " << sizeof(Son) << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
