@@ -1888,40 +1888,103 @@ using namespace std;
 
 
 //继承中构造和析构顺序
-class Base
-{
-public:
-	Base()
-	{
-		cout << "base 的构造函数" << endl;
-	}
-	~Base()
-	{
-		cout << "base 的析构函数" << endl;
-	}
-};
+//class Base
+//{
+//public:
+//	Base()
+//	{
+//		cout << "base 的构造函数" << endl;
+//	}
+//	~Base()
+//	{
+//		cout << "base 的析构函数" << endl;
+//	}
+//};
+//
+//class Son :public Base
+//{
+//public:
+//	Son()
+//	{
+//		cout << "son 的构造函数" << endl;
+//	}
+//	~Son()
+//	{
+//		cout << "son 的析构函数" << endl;
+//	}
+//};
+//
+//void test01()
+//{
+//	//Base b;
+//	Son son;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
 
-class Son :public Base
-{
-public:
-	Son()
-	{
-		cout << "son 的构造函数" << endl;
-	}
-	~Son()
-	{
-		cout << "son 的析构函数" << endl;
-	}
-};
 
-void test01()
-{
-	//Base b;
-	Son son;
-}
-
-int main()
-{
-	test01();
-	return 0;
-}
+//继承同名成员处理
+//class Base
+//{
+//public:
+//	Base()
+//	{
+//		m_a = 100;
+//	}
+//
+//	void func()
+//	{
+//		cout << "Base func()调用" << endl;
+//	}
+//
+//	void func(int a)
+//	{
+//		cout << "Base func(int a)调用" << endl;
+//	}
+//
+//	int m_a;
+//};
+//
+//class Son :public Base
+//{
+//public:
+//	Son()
+//	{
+//		m_a = 200;
+//	}
+//	
+//	void func()
+//	{
+//		cout << "Son func()调用" << endl;
+//	}
+//
+//	int m_a;
+//};
+//
+////同名成员变量
+//void test01()
+//{
+//	Son s;
+//	cout << "Son下 m_a = " << s.m_a << endl;
+//	cout << "Base下 m_a = " << s.Base::m_a << endl;
+//}
+//
+////同名成员函数
+//void test02()
+//{
+//	Son s;
+//	s.func();
+//	s.Base::func();
+//	s.Base::func(100);
+//}
+//
+//int main()
+//{
+//	//test01();
+//	test02();
+//	return 0;
+//}
