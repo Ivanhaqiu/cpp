@@ -1988,3 +1988,68 @@ using namespace std;
 //	test02();
 //	return 0;
 //}
+
+
+//继承中的同名静态成员处理方式
+//class Base
+//{
+//public:
+//	static int m_a;
+//
+//	static void func()
+//	{
+//		cout << "Base-static void func()" << endl;
+//	}
+//
+//	static void func(int a)
+//	{
+//		cout << "Base-static void func(int a)" << endl;
+//	}
+//
+//};
+//int Base:: m_a = 100;
+//
+//class Son :public Base
+//{
+//public:
+//	static int m_a;
+//
+//	static void func()
+//	{
+//		cout << "Son-static void func()" << endl;
+//	}
+//
+//};
+//int Son::m_a = 200;
+//
+//void test01()
+//{
+//	cout << "通过对象访问：" << endl;
+//	Son s;
+//	cout << "Son下 m_a = " << s.m_a << endl;
+//	cout << "Base下 m_a = " << s.Base::m_a << endl;
+//
+//	cout << "通过类名访问:" << endl;
+//	cout << "Son下 m_a = " << Son::m_a << endl;
+//	cout << "Base下 m_a = " << Son::Base::m_a << endl; 
+//}
+//
+//void test02()
+//{
+//	cout << "通过对象访问：" << endl;
+//	Son s;
+//	s.func();
+//	s.Base::func();
+//
+//	cout << "通过类名访问: " << endl;
+//	Son::func();
+//	Son::Base::func();
+//	Son::Base::func(100);
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	return 0;
+//}
