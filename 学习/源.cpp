@@ -2053,3 +2053,56 @@ using namespace std;
 //	test02();
 //	return 0;
 //}
+
+
+//∂‡ºÃ≥–”Ô∑®
+//class Base
+//{
+//public:
+//	Base()
+//	{
+//		m_a = 100;
+//	}
+//
+//	int m_a;
+//};
+//
+//class Base2
+//{
+//public:
+//	Base2()
+//	{
+//		m_a = 200;
+//	}
+//
+//	int m_a;
+//};
+//
+//class Son :public Base, public Base2
+//{
+//public:
+//	Son()
+//	{
+//		m_c = 300;
+//		m_d = 400;
+//	}
+//
+//	int m_c;
+//	int m_d;
+//};
+//
+//void test01()
+//{
+//	Son s;
+//
+//	cout << "sizeof(Son) = " << sizeof(s) << endl;
+//
+//	cout << "Base::m_a = " << s.Base::m_a << endl;
+//	cout << "Base2::m_a = " << s.Base2::m_a << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
