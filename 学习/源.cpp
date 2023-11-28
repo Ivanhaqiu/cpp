@@ -1752,3 +1752,105 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//继承-继承方式
+//class base1
+//{
+//public:
+//	int m_a;
+//protected:
+//	int m_b;
+//private:
+//	int m_c;
+//};
+//
+//class son:public base1
+//{
+//public:
+//	void func()
+//	{
+//		m_a = 10; //pulblic -> public
+//		m_b = 10; //protected -> protected
+//		//m_c = 10; //private -> can't access
+//	}
+//};
+//
+//void test01()
+//{
+//	son s1;
+//	s1.m_a = 100;
+//	//s1.m_b = 100; //protected cant access
+//}
+//
+//class base2
+//{
+//public:
+//	int m_a;
+//protected:
+//	int m_b;
+//private:
+//	int m_c;
+//};
+//
+//class son2:protected base2
+//{
+//public:
+//	void func()
+//	{
+//		m_a = 100; //pulblic -> protected
+//		m_b = 100; //protected -> protected
+//		//m_c = 100; //private -> can't access
+//	}
+//};
+//
+//void test02()
+//{
+//	son2 s1;
+//	s1.m_a = 100;
+//	s1.m_b = 100;
+//	s1.m_c = 100;
+//}
+//
+//class base3
+//{
+//public:
+//	int m_a;
+//protected:
+//	int m_b;
+//private:
+//	int m_c;
+//};
+//
+//class son3:private base3
+//{
+//public:
+//	void func()
+//	{
+//		m_a = 100; //pulblic -> private
+//		m_b = 100; //protected -> private
+//		m_c = 100; //private -> can't access
+//	}
+//};
+//
+//void test03()
+//{
+//	son3 s1;
+//	s1.m_a = 100;
+//	s1.m_b = 100;
+//}
+//
+//class grandson :public son3
+//{
+//public:
+//	void func()
+//	{
+//		m_a = 1000; //m_a已变成私有，访问不到
+//	}
+//};
+//
+//int main()
+//{
+//
+//	return 0;
+//}
