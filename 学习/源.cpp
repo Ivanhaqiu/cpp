@@ -1885,3 +1885,43 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//继承中构造和析构顺序
+class Base
+{
+public:
+	Base()
+	{
+		cout << "base 的构造函数" << endl;
+	}
+	~Base()
+	{
+		cout << "base 的析构函数" << endl;
+	}
+};
+
+class Son :public Base
+{
+public:
+	Son()
+	{
+		cout << "son 的构造函数" << endl;
+	}
+	~Son()
+	{
+		cout << "son 的析构函数" << endl;
+	}
+};
+
+void test01()
+{
+	//Base b;
+	Son son;
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
