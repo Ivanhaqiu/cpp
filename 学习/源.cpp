@@ -2108,35 +2108,85 @@ using namespace std;
 //}
 
 
-class Animal 
+//菱形继承问题以及解决方法
+//class Animal 
+//{
+//public:
+//	int m_age;
+//};
+//
+//class Sheep :virtual public Animal
+//{
+//
+//};
+//
+//class Tuo :virtual public Animal
+//{
+//
+//};
+//
+//class SheepTuo: public Sheep, public Tuo
+//{};
+//
+//void test01()
+//{
+//	SheepTuo st;
+//	st.Sheep::m_age = 18;
+//	st.Tuo::m_age = 28;
+//
+//	cout << "st.Sheep::m_age = " << st.Sheep::m_age << endl;
+//	cout << "st.Tuo::m_age = " << st.Tuo::m_age << endl;
+//}
+//
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+
+class Animal
 {
 public:
-	int m_age;
+	virtual void speak()
+	{
+		cout << "动物在说话" << endl;
+	}
 };
 
-class Sheep :virtual public Animal
+class Cat :public Animal
 {
-
+public:
+	void speak()
+	{
+		cout << "小猫在说话" << endl;
+	}
 };
 
-class Tuo :virtual public Animal
+class Dog :public Animal
 {
-
+public:
+	void speak()
+	{
+		cout << "小狗在说话" << endl;
+	}
 };
 
-class SheepTuo: public Sheep, public Tuo
-{};
+void doSpeak(Animal &animal)
+{
+	animal.speak();
+}
 
 void test01()
 {
-	SheepTuo st;
-	st.Sheep::m_age = 18;
-	st.Tuo::m_age = 28;
+	Cat cat;
+	doSpeak(cat);
 
-	cout << "st.Sheep::m_age = " << st.Sheep::m_age << endl;
-	cout << "st.Tuo::m_age = " << st.Tuo::m_age << endl;
+	Dog dog;
+	doSpeak(dog);
 }
-
 
 int main()
 {
