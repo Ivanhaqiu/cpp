@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <ctime>
+#include <fstream>
 #include "circle.h"
 using namespace std;
 
@@ -2146,7 +2147,7 @@ using namespace std;
 //}
 
 
-//多态的基本语法
+//(135)多态的基本语法
 //class Animal
 //{
 //public:
@@ -2193,3 +2194,72 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//(143)写文件
+//void test01()
+//{
+//	ofstream ofs;
+//
+//	ofs.open("test.txt", ios::out | ios::app);
+//	ofs << "姓名：张三" << endl;
+//	ofs << "性别：男" << endl;
+//	ofs << "年龄：18" << endl;
+//
+//	ofs.close();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+//(144)读文件
+void test01()
+{
+	ifstream ifs;
+	ifs.open("test.txt", ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件打开失败" << endl;
+		return;
+	}
+
+	//读数据
+	//第一种
+	//char buf[1024] = { 0 };
+	//while (ifs >> buf)
+	//{
+	//	cout << buf << endl;
+	//}
+
+	//第二种
+	//char buf[1024] = { 0 };
+	//while (ifs.getline(buf, sizeof(buf)))
+	//{
+	//	cout << buf << endl;
+	//}
+
+	//第三种
+	//string buf;
+	//while (getline(ifs, buf))
+	//{
+	//	cout << buf << endl;
+	//}
+
+	//第四种
+	char c;
+	while ((c = ifs.get()) != EOF)
+	{
+		cout << c << endl;
+	}
+	ifs.close();
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
