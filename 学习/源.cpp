@@ -2195,6 +2195,82 @@ using namespace std;
 //	return 0;
 //}
 
+//(139)类和对象-多态-案例2-制作饮品
+//class AbstractDrinking
+//{
+//public:
+//	virtual void Boil() = 0;
+//	virtual void Brew() = 0;
+//	virtual void PourInCup() = 0;
+//	virtual void PutSomething() = 0;
+//	void makeDrink()
+//	{
+//		Boil();
+//		Brew();
+//		PourInCup();
+//		PutSomething();
+//	}
+//};
+//
+//class Coffee :public AbstractDrinking
+//{
+//	virtual void Boil()
+//	{
+//		cout << "煮农夫山泉" << endl;
+//	}
+//	virtual void Brew()
+//	{
+//		cout << "冲泡咖啡" << endl;
+//	}
+//	virtual void PourInCup()
+//	{
+//		cout << "倒入杯中" << endl;
+//	}
+//	virtual void PutSomething()
+//	{
+//		cout << "加入糖和牛奶" << endl;
+//	}
+//};
+//
+//class Tea :public AbstractDrinking
+//{
+//	virtual void Boil()
+//	{
+//		cout << "煮矿泉水" << endl;
+//	}
+//	virtual void Brew()
+//	{
+//		cout << "冲泡茶叶" << endl;
+//	}
+//	virtual void PourInCup()
+//	{
+//		cout << "倒入杯中" << endl;
+//	}
+//	virtual void PutSomething()
+//	{
+//		cout << "加入柠檬" << endl;
+//	}
+//};
+//
+//
+//void doWork(AbstractDrinking* abs)
+//{
+//	abs->makeDrink();
+//	delete abs;
+//}
+//
+//void test01()
+//{
+//	doWork(new Coffee);
+//	cout << "________________________" << endl;
+//	doWork(new Tea);
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
 
 //(143)写文件
 //void test01()
@@ -2217,49 +2293,49 @@ using namespace std;
 
 
 //(144)读文件
-void test01()
-{
-	ifstream ifs;
-	ifs.open("test.txt", ios::in);
-	if (!ifs.is_open())
-	{
-		cout << "文件打开失败" << endl;
-		return;
-	}
-
-	//读数据
-	//第一种
-	//char buf[1024] = { 0 };
-	//while (ifs >> buf)
-	//{
-	//	cout << buf << endl;
-	//}
-
-	//第二种
-	//char buf[1024] = { 0 };
-	//while (ifs.getline(buf, sizeof(buf)))
-	//{
-	//	cout << buf << endl;
-	//}
-
-	//第三种
-	//string buf;
-	//while (getline(ifs, buf))
-	//{
-	//	cout << buf << endl;
-	//}
-
-	//第四种
-	char c;
-	while ((c = ifs.get()) != EOF)
-	{
-		cout << c << endl;
-	}
-	ifs.close();
-}
-
-int main()
-{
-	test01();
-	return 0;
-}
+//void test01()
+//{
+//	ifstream ifs;
+//	ifs.open("test.txt", ios::in);
+//	if (!ifs.is_open())
+//	{
+//		cout << "文件打开失败" << endl;
+//		return;
+//	}
+//
+//	//读数据
+//	//第一种
+//	//char buf[1024] = { 0 };
+//	//while (ifs >> buf)
+//	//{
+//	//	cout << buf << endl;
+//	//}
+//
+//	//第二种
+//	//char buf[1024] = { 0 };
+//	//while (ifs.getline(buf, sizeof(buf)))
+//	//{
+//	//	cout << buf << endl;
+//	//}
+//
+//	//第三种
+//	//string buf;
+//	//while (getline(ifs, buf))
+//	//{
+//	//	cout << buf << endl;
+//	//}
+//
+//	//第四种
+//	//char c;
+//	//while ((c = ifs.get()) != EOF)
+//	//{
+//	//	cout << c << endl;
+//	//}
+//	ifs.close();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
