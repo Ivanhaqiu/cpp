@@ -2195,6 +2195,14 @@ using namespace std;
 //	return 0;
 //}
 
+
+//(136)多态的原理剖析
+// virtual函数 其实存放了一个指针指向虚函数表
+// 虚函数表记录了虚函数的的地址
+// vfptr -> vftable
+//
+
+
 //(139)类和对象-多态-案例2-制作饮品
 //class AbstractDrinking
 //{
@@ -2339,3 +2347,4 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
