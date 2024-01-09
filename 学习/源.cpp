@@ -2202,6 +2202,114 @@ using namespace std;
 // vfptr -> vftable
 //
 
+//(137)类和对象-多态-案例1-计算器类
+//普通写法
+//class Calculator
+//{
+//public:
+//
+//	int getResult(string oper)
+//	{
+//		if (oper == "+")
+//		{
+//			return m_num1 + m_num2;
+//		}
+//		else if (oper == "-")
+//		{
+//			return m_num1 - m_num2;
+//		}
+//		else if (oper == "*")
+//		{
+//			return m_num1 * m_num2;
+//		}
+//	}
+//
+//	int m_num1;
+//	int m_num2;
+//};
+//void test01()
+//{
+//	Calculator c;
+//	c.m_num1 = 10;
+//	c.m_num2 = 10;
+//
+//	cout << c.m_num1 << "+" << c.m_num2 << "=" << c.getResult("+") << endl;
+//
+//	cout << c.m_num1 << "-" << c.m_num2 << "=" << c.getResult("-") << endl;
+//
+//	cout << c.m_num1 << "*" << c.m_num2 << "=" << c.getResult("*") << endl;
+//}
+//
+//利用多态实现计算器
+//class AbstractCalculator
+//{
+//public:
+//
+//	virtual int getResult()
+//	{
+//		return 0;
+//	}
+//
+//	int m_num1;
+//	int m_num2;
+//};
+//class AddCalculator :public AbstractCalculator
+//{
+//public:
+//
+//	int getResult()
+//	{
+//		return m_num1 + m_num2;
+//	}
+// };
+//class SubCalculator :public AbstractCalculator
+//{
+//public:
+//
+//	int getResult()
+//	{
+//		return m_num1 - m_num2;
+//	}
+//}; 
+//class MultiCalculator :public AbstractCalculator
+//{
+//public:
+//
+//	int getResult()
+//	{
+//		return m_num1 * m_num2;
+//	}
+//};
+//void test02()
+//{
+//	AbstractCalculator* abc = new AddCalculator;
+//	abc->m_num1 = 100;
+//	abc->m_num2 = 10;
+//
+//	cout << abc->m_num1 << "+" << abc->m_num2 << "=" << abc->getResult() << endl;
+//	delete abc;
+//
+//	abc = new SubCalculator;
+//	abc->m_num1 = 100;
+//	abc->m_num2 = 10;
+//
+//	cout << abc->m_num1 << "-" << abc->m_num2 << "=" << abc->getResult() << endl;
+//	delete abc;
+//
+//	abc = new MultiCalculator;
+//	abc->m_num1 = 100;
+//	abc->m_num2 = 10;
+//
+//	cout << abc->m_num1 << "*" << abc->m_num2 << "=" << abc->getResult() << endl;
+//	delete abc;
+//}
+//int main()
+//{
+//	//test01();
+//	test02();
+//	return 0;
+//}
+
 
 //(139)类和对象-多态-案例2-制作饮品
 //class AbstractDrinking
