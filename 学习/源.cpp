@@ -2418,65 +2418,202 @@ using namespace std;
 //}
 
 //(140)类和对象-多态-虚析构和纯虚析构
-class Animal
-{
-public:
-	Animal()
-	{
-		cout << "Animal构造函数调用" << endl;
-	}
-	//virtual ~Animal()
-	//{
-	//	cout << "Animal析构函数调用" << endl;
-	//}
-	virtual void speak() = 0;
-	virtual ~Animal() = 0;
-};
+//纯虚析构需要声明也需要实现
+//有了纯虚析构，类属于抽象类
+//class Animal
+//{
+//public:
+//	Animal()
+//	{
+//		cout << "Animal构造函数调用" << endl;
+//	}
+//	//virtual ~Animal()
+//	//{
+//	//	cout << "Animal析构函数调用" << endl;
+//	//}
+//	virtual void speak() = 0;
+//	virtual ~Animal() = 0;
+//};
+//
+//Animal::~Animal()
+//{
+//	cout << "Animal纯虚析构函数调用" << endl;
+//}
+//
+//class Cat : public Animal
+//{
+//public:
+//	Cat(string name)
+//	{
+//		cout << "Cat构造函数调用" << endl;
+//		m_Name = new string(name);
+//	}
+//
+//	virtual void speak()
+//	{
+//		cout << *m_Name << "小猫在说话" << endl;
+//	}
+//	string *m_Name;
+//
+//	~Cat()
+//	{
+//		if (m_Name!=nullptr)
+//		{
+//			cout << "Cat析构函数调用" << endl;
+//			delete m_Name;
+//			m_Name = nullptr;
+//		}
+//	}
+//};
+//
+//void test01()
+//{
+//	Animal* animal = new Cat("Tom");
+//	animal->speak();
+//	//父类指针在析构时 不会调用子类中析构函数，导致子类如果有堆区属性，出现内存泄漏
+//	delete animal;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
 
-Animal::~Animal()
-{
-	cout << "Animal纯虚析构函数调用" << endl;
-}
+//(141/142)类和对象-多态-案例3-电脑组装需求分析
+//class CPU
+//{
+//public:
+//	virtual void calculate() = 0; 
+//};
+//
+//class GPU
+//{
+//public:
+//	virtual void display() = 0;
+//}; 
+//
+//class Memory
+//{
+//public:
+//	virtual void storage() = 0;
+//};
+//
+//class Computer
+//{
+//public:
+//	Computer(CPU* cpu, GPU* gpu, Memory* memory)
+//	{
+//		m_cpu = cpu;
+//		m_gpu = gpu;
+//		m_memory = memory;
+//	}
+//
+//	void work()
+//	{
+//		m_cpu->calculate();
+//		m_gpu->display();
+//		m_memory->storage();
+//	}
+//	~Computer()
+//	{
+//		if (m_cpu==NULL)
+//		{
+//			delete m_cpu;
+//			m_cpu = NULL;
+//		}
+//		else if (m_gpu == NULL)
+//		{
+//			delete m_gpu;
+//			m_gpu = NULL;
+//		}
+//		else if (m_memory == NULL)
+//		{
+//			delete m_memory;
+//			m_memory = NULL;
+//		}
+//	}
+//private:
+//	CPU* m_cpu;
+//	GPU* m_gpu;
+//	Memory* m_memory;
+//};
+//
+//class IntelCPU:public CPU
+//{
+//public:
+//	virtual void calculate()
+//	{
+//		cout << "Intel的CPU开始计算了!" << endl;
+//	}
+//};
+//
+//class IntelGPU:public GPU
+//{
+//public:
+//	virtual void display()
+//	{
+//		cout << "Intel的GPU开始显示了!" << endl;
+//	}
+//};
+//
+//class IntelMemory:public Memory
+//{
+//public:
+//	virtual void storage()
+//	{
+//		cout << "Intel的Memory开始存储了!" << endl;
+//	}
+//};
+//
+//class LenovoCPU :public CPU
+//{
+//public:
+//	virtual void calculate()
+//	{
+//		cout << "Lenovo的CPU开始计算了!" << endl;
+//	}
+//};
+//
+//class LenovoGPU :public GPU
+//{
+//public:
+//	virtual void display()
+//	{
+//		cout << "Lenovo的GPU开始显示了!" << endl;
+//	}
+//};
+//
+//class LenovoMemory :public Memory
+//{
+//public:
+//	virtual void storage()
+//	{
+//		cout << "Lenovo的Memory开始存储了!" << endl;
+//	}
+//};
+//
+//void test01()
+//{
+//	CPU* intelCPU = new IntelCPU;
+//	GPU* intelGPU = new IntelGPU;
+//	Memory* intelMemory = new IntelMemory;
+//
+//	Computer *intelComputer = new Computer(intelCPU, intelGPU, intelMemory);
+//	intelComputer->work();
+//	delete intelComputer;
+//
+//	Computer* lenovoComputer = new Computer(new LenovoCPU, new LenovoGPU, new LenovoMemory);
+//	lenovoComputer->work();
+//	delete lenovoComputer;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
 
-class Cat : public Animal
-{
-public:
-	Cat(string name)
-	{
-		cout << "Cat构造函数调用" << endl;
-		m_Name = new string(name);
-	}
-
-	virtual void speak()
-	{
-		cout << *m_Name << "小猫在说话" << endl;
-	}
-	string *m_Name;
-
-	~Cat()
-	{
-		if (m_Name!=nullptr)
-		{
-			cout << "Cat析构函数调用" << endl;
-			delete m_Name;
-			m_Name = nullptr;
-		}
-	}
-};
-
-void test01()
-{
-	Animal* animal = new Cat("Tom");
-	animal->speak();
-	//父类指针在析构时 不会调用子类中析构函数，导致子类如果有堆区属性，出现内存泄漏
-	delete animal;
-}
-
-int main()
-{
-	test01();
-	return 0;
-}
 
 //(143)写文件
 //void test01()
