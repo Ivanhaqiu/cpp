@@ -2311,34 +2311,34 @@ using namespace std;
 //}
 
 //(138)类和对象-多态-纯虚函数和抽象类
-class Base
-{
-public:
-	virtual void func() = 0;
-};
-
-class Son :public Base
-{
-public:
-	virtual void func()
-	{
-		cout << "func函数调用" << endl;
-	}
-};
-
-void test01()
-{
-	//Base b;	抽象类无法实例化对象
-	//Son s;
-	Base* base = new Son;
-	base->func();
-}
-
-int main()
-{
-	test01();
-	return 0;
-}
+//class Base
+//{
+//public:
+//	virtual void func() = 0;
+//};
+//
+//class Son :public Base
+//{
+//public:
+//	virtual void func()
+//	{
+//		cout << "func函数调用" << endl;
+//	}
+//};
+//
+//void test01()
+//{
+//	//Base b;	抽象类无法实例化对象
+//	//Son s;
+//	Base* base = new Son;
+//	base->func();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
 
 //(139)类和对象-多态-案例2-制作饮品
 //class AbstractDrinking
@@ -2416,6 +2416,67 @@ int main()
 //	test01();
 //	return 0;
 //}
+
+//(140)类和对象-多态-虚析构和纯虚析构
+class Animal
+{
+public:
+	Animal()
+	{
+		cout << "Animal构造函数调用" << endl;
+	}
+	//virtual ~Animal()
+	//{
+	//	cout << "Animal析构函数调用" << endl;
+	//}
+	virtual void speak() = 0;
+	virtual ~Animal() = 0;
+};
+
+Animal::~Animal()
+{
+	cout << "Animal纯虚析构函数调用" << endl;
+}
+
+class Cat : public Animal
+{
+public:
+	Cat(string name)
+	{
+		cout << "Cat构造函数调用" << endl;
+		m_Name = new string(name);
+	}
+
+	virtual void speak()
+	{
+		cout << *m_Name << "小猫在说话" << endl;
+	}
+	string *m_Name;
+
+	~Cat()
+	{
+		if (m_Name!=nullptr)
+		{
+			cout << "Cat析构函数调用" << endl;
+			delete m_Name;
+			m_Name = nullptr;
+		}
+	}
+};
+
+void test01()
+{
+	Animal* animal = new Cat("Tom");
+	animal->speak();
+	//父类指针在析构时 不会调用子类中析构函数，导致子类如果有堆区属性，出现内存泄漏
+	delete animal;
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
 
 //(143)写文件
 //void test01()
