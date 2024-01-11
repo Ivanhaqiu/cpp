@@ -2310,6 +2310,35 @@ using namespace std;
 //	return 0;
 //}
 
+//(138)类和对象-多态-纯虚函数和抽象类
+class Base
+{
+public:
+	virtual void func() = 0;
+};
+
+class Son :public Base
+{
+public:
+	virtual void func()
+	{
+		cout << "func函数调用" << endl;
+	}
+};
+
+void test01()
+{
+	//Base b;	抽象类无法实例化对象
+	//Son s;
+	Base* base = new Son;
+	base->func();
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
 
 //(139)类和对象-多态-案例2-制作饮品
 //class AbstractDrinking
