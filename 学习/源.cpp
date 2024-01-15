@@ -2480,6 +2480,7 @@ using namespace std;
 //	return 0;
 //}
 
+
 //(141/142)类和对象-多态-案例3-电脑组装需求分析
 //class CPU
 //{
@@ -2616,6 +2617,14 @@ using namespace std;
 
 
 //(143)写文件
+// 
+//	ios::in			为读文件而打开
+//	ios::out		为写文件而打开
+//	ios::ate		初始位置：文件尾
+//	ios::app		追加方式写文件
+//	ios::trunc		如果文件存在先删除，再创建
+//	ios::binary		二进制
+// 
 //void test01()
 //{
 //	ofstream ofs;
@@ -2683,3 +2692,62 @@ using namespace std;
 //	return 0;
 //}
 
+
+//(145)C++文件操作-二进制文件-写文件
+//class Person
+//{
+//public:
+//
+//	char m_Name[64];
+//	int m_Age;
+//};
+//
+//void test01()
+//{
+//	ofstream ofs;
+//	ofs.open("person.txt",ios::out | ios::binary);
+//
+//	Person p = { "张三", 18 };
+//	ofs.write((const char*)&p, sizeof(Person));
+//
+//	ofs.close();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+//(146)C++文件操作-二进制文件-读文件
+class Person
+{
+public:
+	char m_name[64];
+	int m_age;
+};
+
+void test01()
+{
+	ifstream ifs;
+	ifs.open("person.txt", ios::in | ios::binary);
+
+	if (!ifs.is_open())
+	{
+		cout << "文件打开失败" << endl;
+		return;
+	}
+
+	Person p;
+	ifs.read((char*)&p, sizeof(Person));
+	cout << "姓名: " << p.m_name << " 年龄:	" << p.m_age << endl;
+
+	ifs.close();
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
