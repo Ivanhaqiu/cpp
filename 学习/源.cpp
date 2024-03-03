@@ -1,9 +1,11 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <ctime>
 #include <fstream>
 #include "circle.h"
+
 using namespace std;
 
 //struct student
@@ -2721,33 +2723,307 @@ using namespace std;
 
 
 //(146)C++文件操作-二进制文件-读文件
-class Person
-{
-public:
-	char m_name[64];
-	int m_age;
-};
+//class Person
+//{
+//public:
+//	char m_name[64];
+//	int m_age;
+//};
+//
+//void test01()
+//{
+//	ifstream ifs;
+//	ifs.open("person.txt", ios::in | ios::binary);
+//
+//	if (!ifs.is_open())
+//	{
+//		cout << "文件打开失败" << endl;
+//		return;
+//	}
+//
+//	Person p;
+//	ifs.read((char*)&p, sizeof(Person));
+//	cout << "姓名: " << p.m_name << " 年龄:	" << p.m_age << endl;
+//
+//	ifs.close();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
 
-void test01()
-{
-	ifstream ifs;
-	ifs.open("person.txt", ios::in | ios::binary);
 
-	if (!ifs.is_open())
-	{
-		cout << "文件打开失败" << endl;
-		return;
-	}
 
-	Person p;
-	ifs.read((char*)&p, sizeof(Person));
-	cout << "姓名: " << p.m_name << " 年龄:	" << p.m_age << endl;
+//int main()
+//{
+//	int x = 53191;
+//	char a[64] = { "2" };
+//	cout << sizeof(int) << " " << sizeof(short) << endl;
+//	cout << _itoa(x, a, 2) << endl;;
+//	short sx = (short)x;
+//	cout << _itoa(sx, a, 2) << endl;
+//	int isx = (int)sx;
+//	cout << _itoa(isx, a, 2) << endl;
+//	return 0;
+//}
 
-	ifs.close();
-}
 
-int main()
-{
-	test01();
-	return 0;
-}
+//(168)模板-函数模板基本语法
+//void swapInt(int& a, int& b)
+//{
+//	int temp = a;
+//	a = b;
+//	b = temp;
+//}
+//
+//void swapDouble(double& a, double& b)
+//{
+//	double temp = a;
+//	a = b;
+//	b = temp;
+//}
+//
+////函数模板
+//template<typename T>	//申明模板，T是一个通用数据类型
+//void mySwap(T& a, T& b)
+//{
+//	T temp = a;
+//	a = b;
+//	b = temp;
+//}
+//
+//void test01()
+//{
+//	int a = 10;
+//	int b = 20;
+//	
+//	//swapInt(a, b);
+//	//利用函数模板交换，两种方式使用函数模板
+//	
+//	//1.自动类型推导
+//	//mySwap(a, b);
+//	
+//	//2.显示指定类型
+//	mySwap<int>(a, b);
+//	cout << "a = " << a << endl;
+//	cout << "b = " << b << endl;
+//
+//	double c = 1.1;
+//	double d = 2.2;
+//
+//	swapDouble(c, d);
+//	cout << "c = " << c << endl;
+//	cout << "d = " << d << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//
+//	return 0;
+//}
+
+
+//(169)模板-函数模板注意事项
+//template<class T>
+//void mySwap(T& a, T& b)
+//{
+//	T temp = a;
+//	a = b;
+//	b = temp;
+//}
+//
+////1.自动类型推导，必须推导出一致的数据类型T才可以使用
+//void test01()
+//{
+//	int a = 10;
+//	int b = 20;
+//	char c = 'c';
+//
+//	//mySwap(a, b);	正确
+//	//mySwap(a, c);	错误
+//
+//	cout << "a = " << a << endl;
+//	cout << "b = " << b << endl;
+//}
+//
+////2.模板必须确定出T的数据类型，才可以使用
+//template<class T>
+//void func()
+//{
+//	cout << "func 调用" << endl;
+//}
+//
+//void test02()
+//{
+//	//func():	错误
+//	func<int>();
+//}
+//
+//int main()
+//{
+//	//test01();
+//	test02();
+//	return 0;
+//}
+
+
+//(170)模板-函数模板案例-数组排序
+////交换函数模板
+//template<class T>
+//void mySwap(T& a, T& b)
+//{
+//	T temp = a;
+//	a = b; 
+//	b = temp;
+//}
+//
+////排序算法
+//template<class T>
+//void mySort(T arr[], int len)
+//{
+//	for (int i = 0; i < len; i++)
+//	{
+//		int max = i;
+//		for (int j = i+1; j < len; j++)
+//		{
+//			if (arr[max] < arr[j])
+//			{
+//				max = j;
+//			}
+//		}
+//		if (max != i)
+//		{
+//			mySwap(arr[max], arr[i]);
+//		}
+//	}
+//}
+//
+////提供打印数组模板
+//template<class T>
+//void printArr(T arr[], int len)
+//{
+//	for (int i = 0; i < len; i++)
+//	{
+//		cout << arr[i] << ' ';
+//	}
+//	cout << endl;
+//}
+//
+//void test01()
+//{
+//	//测试char数组
+//	char charArr[] = "badcfe";
+//	int sz = sizeof(charArr) / sizeof(char);
+//	mySort(charArr, sz);
+//	printArr(charArr, sz);
+//}
+//
+//void test02()
+//{
+//	//测试int数组
+//	int intArr[] = {5,7,3,0,3,1,8};
+//	int sz = sizeof(intArr) / sizeof(int);
+//	mySort(intArr, sz);
+//	printArr(intArr, sz);
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	return 0;
+//}
+
+//(171)模板-普通模板与函数模板区别
+////1.普通函数调用可以发生隐式类型转换
+////2.函数模板 用自动类型推导，不可以发生隐式类型转换
+////3.函数模板 用显示指定类型，可以发生隐式类型转换
+//
+////普通函数
+//int myAdd01(int a, int b)
+//{
+//	return a + b;
+//}
+//
+////函数模板
+//template<class T>
+//T myAdd02(T a, T b)
+//{
+//	return a + b;
+//}
+//
+//void test01()
+//{
+//	int a = 10;
+//	int b = 20;
+//	char c = 'c';
+//
+//	cout << myAdd01(a, c) << endl;
+//
+//	//自动类型推导
+//	//cout << myAdd02(a, c) << endl;
+//
+//	//显式指定类型
+//	cout << myAdd02<int>(a, c) << endl;
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+//(172)模板-普通函数与函数模板调用规则
+////1.如果函数模板和普通函数都可以调用，优先调用普通函数
+////2.可以通过空模板参数列表 强制调用 函数模板
+////3.函数模板可以发生函数重载
+////4.如果函数模板可以产生更好的匹配，优先调用函数模板
+//
+//void myPrint(int a, int b)
+//{
+//	cout << "调用普通的函数" << endl;
+//}
+//
+//template<class T>
+//void myPrint(T a, T b)
+//{
+//	cout << "调用的模板" << endl;
+//}
+//
+//template<class T>
+//void myPrint(T a, T b, T c)
+//{
+//	cout << "调用重载的模板" << endl;
+//}
+//
+//void test01()
+//{
+//	int a = 10;
+//	int b = 20;
+//
+//	//myPrint(a, b);
+//
+//	//通过空模板参数列表，强制调用函数模板
+//	//myPrint<>(a, b);
+//
+//	//myPrint(a, b, 10);
+//
+//	//如果函数模板产生更好的匹配，优先调用函数模板
+//	char c1 = 'a';
+//	char c2 = 'b';
+//
+//	myPrint(c1, c2);
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+//(173)模板-模板的局限性
