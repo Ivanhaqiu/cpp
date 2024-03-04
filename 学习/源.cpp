@@ -3027,3 +3027,207 @@ using namespace std;
 
 
 //(173)模板-模板的局限性
+//class Person
+//{
+//public:
+//	Person(string name, int age)
+//	{
+//		this->m_name = name;
+//		this->m_age = age;
+//	}
+//
+//	string m_name;
+//	int m_age;
+//};
+//
+//template <class T>
+//bool myCompare(T& a, T& b)
+//{
+//	if (a == b)
+//	{
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	}
+//}
+//
+////利用具体化Person的版本实现代码，具体化优先调用
+//template<> bool myCompare(Person& p1, Person& p2)
+//{
+//	if (p1.m_name == p2.m_name && p1.m_age == p2.m_age)
+//	{
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	}
+//}
+//
+//void test01()
+//{
+//	int a = 10;
+//	int b = 20;
+//
+//	bool ret = myCompare(a, b);
+//
+//	if (ret)
+//	{
+//		cout << "a == b" << endl;
+//	}
+//	else
+//	{
+//		cout << "a != b" << endl;
+//	}
+//}
+//
+//void test02()
+//{
+//	Person p1("Tom", 10);
+//	Person p2("Tom", 10);
+//
+//	bool ret = myCompare(p1, p2);
+//	if (ret)
+//	{
+//		cout << "p1 == p2" << endl;
+//	}
+//	else
+//	{
+//		cout << "p1 != p2" << endl;
+//	}
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	return 0;
+//}
+
+
+//(174)模板-类模板基本语法
+//template<class NameType, class AgeType>
+//class Person
+//{
+//public:
+//	Person(NameType name, AgeType age)
+//	{
+//		this->m_name = name;
+//		this->m_age = age;
+//	}
+//
+//	void showPerson()
+//	{
+//		cout << "name: " << this->m_name << " age: " << this->m_age << endl;;
+//	}
+//
+//	NameType m_name;
+//	AgeType m_age;
+//};
+//
+//void test01()
+//{
+//	Person<string, int> p1("Tom", 99);
+//	p1.showPerson();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+//(175)模板-类模板与函数模板区别
+//template<class NameType, class AgeType = int>
+//class Person
+//{
+//public:
+//	Person(NameType name, AgeType age)
+//	{
+//		this->m_name = name;
+//		this->m_age = age;
+//	}
+//	void showPerson()
+//	{
+//		cout << "name: " << this->m_name << " age: " << this->m_age << endl;
+//	}
+//
+//	NameType m_name;
+//	AgeType m_age;
+//};
+//
+////1.类模板没有自动类型推到使用
+//void test01()
+//{
+//	//Perosn p("Tom", 99); 错误，无法自动类型推导
+//
+//	Person<string, int> p("Tom", 99);
+//	p.showPerson();
+//}
+////2.类模板在模板参数列表中可以有默认参数
+//void test02()
+//{
+//	Person<string> p2("Jerry", 66);
+//	p2.showPerson();
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	return 0;
+//}
+
+
+//(176)模板-类模板中成员函数创建时机
+////类模板中的成员函数并不是一开始就创建的，在调用时才去创建
+//class Person1
+//{
+//public:
+//	void showPerson1()
+//	{
+//		cout << "Person1 show" << endl;
+//	}
+//};
+//
+//class Person2
+//{
+//public:
+//	void showPerson2()
+//	{
+//		cout << "Person2 show" << endl;
+//	}
+//};
+//
+//template<class T>
+//class myClass
+//{
+//public:
+//	T obj;
+//
+//	void func1()
+//	{
+//		obj.showPerson1();
+//	}
+//
+//	void func2()
+//	{
+//		obj.showPerson2();
+//	}
+//};
+//
+//void test01()
+//{
+//	myClass<Person2>m;
+//	//m.func1();
+//	m.func2();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
