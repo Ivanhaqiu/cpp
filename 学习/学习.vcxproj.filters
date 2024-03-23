@@ -24,12 +24,18 @@
     <ClCompile Include="circle.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="person.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="point.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="circle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="person.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

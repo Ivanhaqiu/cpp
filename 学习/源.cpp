@@ -5,6 +5,7 @@
 #include <ctime>
 #include <fstream>
 #include "circle.h"
+#include "person.hpp"
 
 using namespace std;
 
@@ -3231,3 +3232,262 @@ using namespace std;
 //	test01();
 //	return 0;
 //}
+
+
+//(177)模板-类模板对象做函数参数
+//template<class T1, class T2>
+//class Person
+//{
+//public:
+//	Person(T1 name, T2 age)
+//	{
+//		this->m_name = name;
+//		this->m_age = age;
+//	}
+//
+//	void showPerson()
+//	{
+//		cout << "姓名: " << this->m_name << " 年龄：" << this->m_age << endl;
+//	}
+//
+//	T1 m_name;
+//	T2 m_age;
+//};
+////1.指定传入类型
+//void printPerson1(Person<string, int>&p)
+//{
+//	p.showPerson();
+//}
+//
+//void test01()
+//{
+//	Person<string, int>p("孙悟空", 100);
+//	printPerson1(p);
+//}
+//
+////2.参数模板化
+//template<class T1, class T2>
+//void printPerson2(Person<T1, T2>& p)
+//{
+//	p.showPerson();
+//	cout << "T1的数据类型：" << typeid(T1).name() << endl;
+//	cout << "T2的数据类型：" << typeid(T2).name() << endl;
+//}
+//
+//void test02()
+//{
+//	Person<string, int>p("猪八戒", 90);
+//	printPerson2(p);
+//}
+//
+////3.整个类模板化
+//template<class T>
+//void printPerson3(T &p)
+//{
+//	p.showPerson();
+//	cout << "T的数据类型：" << typeid(T).name() << endl;
+//}
+//
+//void test03()
+//{
+//	Person<string, int>p("唐僧", 30);
+//	printPerson3(p);
+//}
+//
+//int main()
+//{
+//	test01();
+//	test02();
+//	test03();
+//	return 0;
+//}
+
+
+//(178)模板-类模板与继承
+//template<class T>
+//class Base
+//{
+//	T m;
+//};
+//
+////class Son : public Base	//错误，必须知道父类中的T类型，才能继承给子类
+//class Son : public Base<int>
+//{
+//
+//};
+//
+//void test01()
+//{
+//	Son s1;
+//}
+//
+////如果想灵活指定父类中T类型，子类也需要变类模板
+//template<class T1, class T2>
+//class Son2 :public Base<T2>
+//{
+//public:
+//	Son2()
+//	{
+//		cout << "T1的数据类型为: " << typeid(T1).name() << endl;
+//		cout << "T2的数据类型为: " << typeid(T2).name() << endl;
+//	}
+//	T1 obj;
+//};
+//
+//void test02()
+//{
+//	Son2<int, char>s2;
+//}
+//
+//int main()
+//{
+//	test02();
+//	return 0;
+//}
+
+
+//(179)模板-类模板成员函数类外实现
+//template<class T1,class T2>
+//class Person
+//{
+//public:
+//	Person(T1 name, T2 age);
+//	//{
+//	//	this->m_name = name;
+//	//	this->m_age = age;
+//	//}
+//
+//	void showPerson();
+//	//{
+//	//	cout << "姓名：" << this->m_name << " 年龄：" << this->m_age << endl;
+//	//}
+//	T1 m_name;
+//	T2 m_age;
+//};
+//
+////构造函数类外实现
+//template<class T1, class T2>
+//Person<T1,T2>::Person(T1 name, T2 age)
+//{
+//	this->m_name = name;
+//	this->m_age = age;
+//}
+//
+////成员函数类外实现
+//template<class T1,class T2>
+//void Person<T1,T2>::showPerson()
+//{
+//	cout << "姓名：" << this->m_name << " 年龄：" << this->m_age << endl;
+//}
+//
+//void test01()
+//{
+//	Person<string, int> P("tom", 20);
+//	P.showPerson();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+
+//(180)模板-类模板分文件编写
+//template<class T1,class T2>
+//class Person
+//{
+//public:
+//	Person(T1 name, T2 age);
+//
+//	void showPerson();
+//
+//	T1 m_name;
+//	T2 m_age;
+//};
+//
+//template<class T1, class T2>
+//Person<T1, T2>::Person(T1 name, T2 age)
+//{
+//	this->m_name = name;
+//	this->m_age = age;
+//}
+//
+//template<class T1,class T2>
+//void Person<T1,T2>::showPerson()
+//{
+//	cout << "姓名：" << this->m_name << " 年龄：" << this->m_age << endl;
+//}
+//
+//void test01()
+//{
+//	Person<string, int> p("tom", 18);
+//	p.showPerson();
+//}
+//
+//int main()
+//{
+//	test01();
+//	return 0;
+//}
+
+//(181)模板-类模板与友元	全局函数类内实现-直接在类内申明友元即可		全局函数类外实现-需要提前让编译器知道全局函数的存在
+
+template<class T1,class T2>
+class Person;
+
+//类外实现
+template<class T1, class T2>
+void printPerson2(Person<T1, T2> p)
+{
+	cout << "类外实现 --- 姓名：" << p.m_name << "年龄：" << p.m_age << endl;
+}
+
+template<class T1, class T2>
+class Person
+{
+	//全局函数 类内实现
+	friend void printPerson(Person<T1, T2> p)
+	{
+		cout << "姓名：" << p.m_name << " 年龄：" << p.m_age << endl;
+	}
+	//全局函数 类外实现
+	//加空模板参数列表
+	//如果是全局函数 是类外实现，需要让编译器提前知道这个函数的存在
+	friend void printPerson2<>(Person<T1, T2> p);
+
+public:
+	Person(T1 name, T2 age)
+	{
+		this->m_name = name;
+		this->m_age = age;
+	}
+		
+private:
+	T1 m_name;
+	T2 m_age;
+};
+
+
+
+//1、全局函数在类内实现
+void test01()
+{
+	Person<string, int>p("tom", 20);
+
+	printPerson(p);
+}
+
+//2、全局函数在类外实现
+void test02()
+{
+	Person<string, int> p("jerry", 20);
+
+	printPerson2(p);
+}
+
+int main()
+{
+	test01();
+	return 0;
+}
